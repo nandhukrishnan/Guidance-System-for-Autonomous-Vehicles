@@ -1,0 +1,1 @@
+Code for building a sample CNN. CNN is trained on three classes which are FORWARD, LEFT and RIGHT. Around 200 images are taken from SullyChen dataset for each class. The CNN is designed to have three output neurons for each class
