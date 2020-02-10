@@ -60,3 +60,22 @@ callbacks_list = [checkpoint]
 history= model.fit_generator(training_set, steps_per_epoch=10, epochs=25, validation_data=test_set, validation_steps=5)
 
 model.save('/content/drive/My Drive/M.Tech Project/Base Model/base_model.h5')
+
+
+items = os.listdir('/content/drive/My Drive/M.Tech Project/Base Model/test_set/all')
+for each_image in items:
+  direction=""
+  if each_image.endswith(".jpg"):
+    full_path = "/content/drive/My Drive/M.Tech Project/Base Model/test_set/all/" + each_image
+    test_image=image.load_img(full_path,target_size=(256,256))
+    plt.imshow(test_image)
+    plt.show()
+    test_image=np.expand_dims(test_image,axis=0)
+    result=model.predict(test_image)
+    if result[0][0] == 1:
+      direction = direction + "Forward"
+    elif result[0][1] == 1:
+      direction = direction + "Left"
+    elif result[0][2] == 1:
+      direction = direction + "Right"
+    print(direction)
