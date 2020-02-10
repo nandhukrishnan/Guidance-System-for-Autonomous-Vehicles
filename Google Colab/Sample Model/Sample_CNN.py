@@ -48,15 +48,10 @@ test_set=test_datagen.flow_from_directory(
     batch_size=32,
     class_mode='categorical')
 
-filepath="/content/drive/My Drive/Dataset/epochs:{epoch:03d}-val_acc:{val_acc:.3f}.hdf5"
+filepath="/content/drive/My Drive/M.Tech Project/Base Model/epochs:{epoch:03d}-val_acc:{val_acc:.3f}.hdf5"
 checkpoint = ModelCheckpoint(filepath, monitor='val_acc', verbose=1, save_best_only=True, mode='max')
 callbacks_list = [checkpoint]
 
-model.fit_generator(
-    training_set,
-    steps_per_epoch=10,
-    epochs=25,
-    validation_data=test_set,
-    validation_steps=5)
+history= model.fit_generator(training_set, steps_per_epoch=10, epochs=25, validation_data=test_set, validation_steps=5)
 
-model.save('/content/drive/My Drive/Dataset/model.h5')
+model.save('/content/drive/My Drive/M.Tech Project/Base Model/base_model.h5')
