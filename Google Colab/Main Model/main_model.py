@@ -193,4 +193,29 @@ model.save('/content/drive/My Drive/M.Tech Project/Main Model/main_model.h5')
 
 model = load_model("/content/drive/My Drive/M.Tech Project/Main Model/main_model.h5")
 
+print(model.evaluate(test_dataset,test_ys))
+Predicted_test = model.predict(test_dataset)
+
+Predicted_test[:,0].shape
+len(test_ys)
+
+def display_diff(y_act,y_pre):
+  z = y_act/y_pre
+  plt.hist(z, label='Training DIffernce')
+  plt.title('Training and validation loss')
+  plt.legend()
+  plt.show()
+  
+display_diff(test_ys,Predicted_test[:,0])
+
+print(model.evaluate_generator(test_generator))
+Predicted_test = model.predict_generator(test_generator)
+
+i=0
+for i in range(0,10):
+  z=random.randint(0,9081)
+  plt.imshow(test_dataset[z])
+  plt.show()
+  print(test_ys[z])
+  i+=1
 
