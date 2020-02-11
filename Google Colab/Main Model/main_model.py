@@ -148,6 +148,8 @@ def create_model():
 
 model = create_model()
 
+model.summary()
+
 adam = Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=0.001, decay=0.0, amsgrad=False)
 model.compile(loss='mse',optimizer=adam)
 
