@@ -1,0 +1,7 @@
+steps_per_epoch=1000
+epoch=5
+validation_steps=500
+
+500/1000 [==============>...............] - ETA: 1:46 - loss: 6.0556e-05 - acc: 1.0000
+Epoch 00001: val_acc improved from -inf to 1.00000, saving model to /content/drive/My Drive/Dataset/epochs:001-val_acc:1.000.hdf5
+1000/1000 [==============================] - 913s 913ms/step - loss: 0.0948 - acc: 0.9626 - val_loss: 6.0556e-05 - val_acc: 1.0000
